@@ -4,14 +4,14 @@ image:
   pullPolicy: IfNotPresent
 
 backend:
-  image: golo97/backend:latest
+  image: golo97/backend:0.0.1
   port: 8000
   env:
     REDIS_HOST: redis-service
     REDIS_PORT: 6379
 
 frontend:
-  image: golo97/frontend:latest
+  image: golo97/frontend:0.0.1
   port: 3000
 
 redis:
