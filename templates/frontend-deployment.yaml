@@ -21,12 +21,12 @@ spec:
             - containerPort: {{ .Values.frontend.port }}
           env:
             - name: REACT_APP_API_URL
-              value: http://backend.local/orders/
+              value: {{ .Values.frontend.env.REACT_APP_API_URL }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend-service-{{ .Values.metadata.name }}
 spec:
   selector:
     app: frontend

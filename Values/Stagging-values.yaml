@@ -1,4 +1,6 @@
 replicaCount: 1
+metadata:
+  name: stagging
 
 image:
   pullPolicy: IfNotPresent
@@ -13,6 +15,8 @@ backend:
 frontend:
   image: golo97/frontend:0.0.3
   port: 3000
+  env: 
+    REACT_APP_API_URL: http://backend-stagging.local/orders/
 
 redis:
   image: redis:alpine
@@ -31,3 +35,7 @@ service:
 
 networkPolicy:
   enabled: false
+
+ingress: 
+  back: backend-stagging.local
+  front: frontend-stagging.local

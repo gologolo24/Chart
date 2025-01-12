@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend-ingress
+  name: backend-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /  # This ensures that the path is correctly rewritten for your service
 spec:
   ingressClassName: nginx
   rules:
-  - host: backend.local {{ .Values.backend.port }}
+  - host: {{ .Values.ingress.back }}
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: backend-service
+            name: backend-service-{{ .Values.metadata.name }}
             port:
               number: {{ .Values.backend.port }}
