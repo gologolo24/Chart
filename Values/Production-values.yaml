@@ -31,3 +31,6 @@ service:
 
 networkPolicy:
   enabled: false
+
+ingress: 
+  host: backend.local

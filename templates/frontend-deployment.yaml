@@ -19,6 +19,9 @@ spec:
           image: {{ .Values.frontend.image }}
           ports:
             - containerPort: {{ .Values.frontend.port }}
+          env:
+            - name: REACT_APP_API_URL
+              value: http://backend.local/orders/
 ---
 apiVersion: v1
 kind: Service
