@@ -21,7 +21,7 @@ spec:
             - containerPort: {{ .Values.frontend.port }}
           env:
             - name: REACT_APP_API_URL
-              value: http://imashelha.local
+              value: http://backend.local/orders/
 ---
 apiVersion: v1
 kind: Service
