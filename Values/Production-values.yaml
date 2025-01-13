@@ -40,3 +40,6 @@ networkPolicy:
 ingress: 
   back: backend.local
   front: frontend.local
+
+ingress-nginx:
+  enabled: true

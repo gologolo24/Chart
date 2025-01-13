@@ -39,3 +39,6 @@ networkPolicy:
 ingress: 
   back: backend-stagging.local
   front: frontend-stagging.local
+
+ingress-nginx:
+  enabled: false
