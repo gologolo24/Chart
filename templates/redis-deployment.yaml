@@ -26,7 +26,7 @@ spec:
       volumes:
         - name: redis-data
           persistentVolumeClaim:
-            claimName: redis-pvc
+            claimName: redis-pvc-{{ .Values.redis.env }}
 ---
 apiVersion: v1
 kind: Service

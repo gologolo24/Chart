@@ -25,6 +25,7 @@ redis:
   volumes:
       name: redis-data
       path: /data
+  env: prod
 
 
 admin:

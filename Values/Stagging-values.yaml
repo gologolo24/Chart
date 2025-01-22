@@ -24,6 +24,7 @@ redis:
   volumes:
       name: redis-data
       path: /data
+  env: stagging
 
 
 admin:
