@@ -24,7 +24,8 @@ spec:
             - name: redis-data
               mountPath: {{ .Values.redis.volumes.path }}
       volumes:
-        - persistentVolumeClaim:
+        - name: redis-data
+          persistentVolumeClaim:
             claimName: redis-pvc
 ---
 apiVersion: v1
