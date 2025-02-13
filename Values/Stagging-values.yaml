@@ -16,7 +16,7 @@ frontend:
   image: golo97/frontend:0.0.5
   port: 3000
   env: 
-    REACT_APP_API_URL: http://backend-stagging.local/orders/
+    REACT_APP_API_URL: http://test-backend.kubegroundapp.click/orders/
 
 redis:
   image: redis:alpine
@@ -38,8 +38,8 @@ networkPolicy:
   enabled: false
 
 ingress: 
-  back: backend-stagging.local
-  front: frontend-stagging.local
+  back: test-backend.kubegroundapp.click
+  front: test-frontend.kubegroundapp.click
 
 ingress-nginx:
   enabled: false
