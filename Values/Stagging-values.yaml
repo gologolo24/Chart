@@ -16,7 +16,7 @@ frontend:
   image: golo97/frontend:0.0.5
   port: 3000
   env: 
-    REACT_APP_API_URL: http://test-backend.kubegroundapp.click/orders/
+    REACT_APP_API_URL: http://backend-service.stagging.svc.cluster.local/orders/
 
 redis:
   image: redis:alpine
