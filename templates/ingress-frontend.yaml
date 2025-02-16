@@ -4,7 +4,7 @@ metadata:
   name: frontend-ingress-{{ .Values.metadata.name }}
   annotations:
     kubernetes.io/ingress.class: "nginx" 
-    nginx.ingress.kubernetes.io/rewrite-target: /  # This ensures that the path is correctly rewritten for your service
+    nginx.ingress.kubernetes.io/rewrite-target: /$1  # This ensures that the path is correctly rewritten for your service
 spec:
   ingressClassName: nginx
   rules:
@@ -18,7 +18,7 @@ spec:
             name: frontend-service
             port:
               number: {{ .Values.frontend.port }}
-      - path: /backend-service/orders/
+      - path: /backend-service/(.*)
         pathType: Prefix
         backend:
           service:
