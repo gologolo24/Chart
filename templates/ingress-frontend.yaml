@@ -18,8 +18,8 @@ spec:
             name: frontend-service
             port:
               number: {{ .Values.frontend.port }}
-      - path: /backend-service/?(.*)
-        pathType: ImplementationSpecific
+      - path: /backend-service/orders/
+        pathType: Prefix
         backend:
           service:
             name: backend-service
