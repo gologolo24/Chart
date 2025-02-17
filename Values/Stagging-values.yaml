@@ -16,7 +16,7 @@ frontend:
   image: golo97/frontend:0.0.5
   port: 3000
   env: 
-    REACT_APP_API_URL: http://test-frontend.kubegroundapp.click:8000/orders/
+    REACT_APP_API_URL: http://test-frontend.kubegroundapp.click
 
 redis:
   image: redis:alpine
