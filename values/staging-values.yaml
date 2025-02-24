@@ -13,8 +13,8 @@ backend:
     REDIS_PORT: 6379
 
 frontend:
-  image: golo97/frontend:0.0.5
-  port: 80
+  image: golo97/frontend:0.0.13
+  port: 3000
   env: 
     REACT_APP_API_URL: /api/v1/orders
 
