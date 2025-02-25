@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 backend:
-  image: golo97/backend:0.0.15
+  image: golo97/backend:0.0.16
   port: 8000
   env:
     REDIS_HOST: redis-service.svc.cluster.local
