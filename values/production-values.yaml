@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 backend:
-  image: golo97/backend:0.0.3
+  image: golo97/backend:0.0.18
   port: 8000
   env:
     REDIS_HOST: redis-service
@@ -14,10 +14,10 @@ backend:
 
 
 frontend:
-  image: golo97/frontend:0.0.3
-  port: 3000
+  image: golo97/frontend:0.0.18
+  port: 80
   env: 
-    REACT_APP_API_URL: http://backend.local/orders/
+    REACT_APP_API_URL: /api/v1/orders
 
 redis:
   image: redis:alpine
@@ -39,8 +39,7 @@ networkPolicy:
   enabled: false
 
 ingress: 
-  back: backend.local
-  front: frontend.local
+  front: prod.kubegroundapp.click
 
 ingress-nginx:
   enabled: true
