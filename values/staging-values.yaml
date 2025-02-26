@@ -6,14 +6,14 @@ image:
   pullPolicy: IfNotPresent
 
 backend:
-  image: golo97/backend:0.0.16
+  image: golo97/backend:0.0.18
   port: 8000
   env:
     REDIS_HOST: redis-service
     REDIS_PORT: 6379
 
 frontend:
-  image: golo97/frontend:0.1.1
+  image: golo97/frontend:0.0.18
   port: 80
   env: 
     REACT_APP_API_URL: /api/v1/orders
