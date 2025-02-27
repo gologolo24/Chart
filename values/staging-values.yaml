@@ -39,7 +39,7 @@ networkPolicy:
   enabled: false
 
 ingress: 
-  front: test-frontend.kubegroundapp.click
+  front: test.kubegroundapp.click
 
 ingress-nginx:
   enabled: false
