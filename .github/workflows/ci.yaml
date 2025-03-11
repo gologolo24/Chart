@@ -1,0 +1,59 @@
+name: Release Helm Chart
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.11.0
+
+      - name: Extract Version from Commit Message
+        id: version
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          VERSION=$(echo "$COMMIT_MSG" | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
+          if [ -z "$VERSION" ]; then
+            echo "No version found in commit message. Exiting."
+            exit 1
+          fi
+          echo "VERSION=${VERSION:1}" >> $GITHUB_ENV
+
+      - name: Update Chart Version
+        run: |
+          sed -i "s/^version: .*/version: $VERSION/" Chart.yaml
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -am "chore: bump chart version to $VERSION"
+          git push origin main
+
+      - name: Package Helm Chart
+        run: |
+          helm package .
+
+      - name: Checkout GitHub Pages Branch
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages || git checkout --orphan gh-pages
+          mkdir -p charts
+          mv *.tgz charts/
+
+      - name: Update Helm Repository Index
+        run: |
+          helm repo index charts --url https://gologolo24.github.io/Chart
+          git add charts
+          git commit -m "chore: update helm repo index with version $VERSION"
+          git push origin gh-pages
