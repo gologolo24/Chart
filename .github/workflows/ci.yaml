@@ -43,18 +43,17 @@ jobs:
 
       - name: Package Helm Chart
         run: |
-          helm package .
+          helm package .  # ✅ Packages chart and places .tgz in root
 
       - name: Checkout GitHub Pages Branch
         run: |
           git fetch origin gh-pages
           git checkout gh-pages || git checkout --orphan gh-pages
-          mkdir -p charts
-          mv *.tgz charts/
+          mv *.tgz .  # ✅ Move packaged .tgz files to root (no charts/ folder)
 
       - name: Update Helm Repository Index
         run: |
-          helm repo index charts --url https://gologolo24.github.io/Chart/charts
-          git add charts
+          helm repo index . --url https://gologolo24.github.io/Chart  # ✅ Correct root URL
+          git add index.yaml *.tgz
           git commit -m "chore: update helm repo index with version $VERSION"
           git push origin gh-pages
