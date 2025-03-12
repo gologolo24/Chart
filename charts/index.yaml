@@ -3,7 +3,17 @@ entries:
   portfolio:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-03-11T15:57:21.93077408Z"
+    created: "2025-03-12T13:12:50.651499762Z"
+    description: A Helm chart for Kubernetes
+    digest: b78025970582f800feef54c1727e8f15e1759f7120c0f75ffcd5162a54db03c2
+    name: portfolio
+    type: application
+    urls:
+    - https://gologolo24.github.io/Chart/portfolio-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-12T13:12:50.650500739Z"
     description: A Helm chart for Kubernetes
     digest: 46edcde05780239e10a4e0fe080cb0542e21f0ced4ce39348db3f4bfac06e237
     name: portfolio
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://gologolo24.github.io/Chart/portfolio-1.0.3.tgz
     version: 1.0.3
-generated: "2025-03-11T15:57:21.929603942Z"
+generated: "2025-03-12T13:12:50.649303529Z"
