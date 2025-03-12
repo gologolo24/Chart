@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ipatient:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-12T15:42:50.426801851Z"
+    description: A Helm chart for Kubernetes
+    digest: 497b0044a6073100ae7576b931d14dcb252dec0a43615e6a2e00fcf3316aa67d
+    name: ipatient
+    type: application
+    urls:
+    - https://gologolo24.github.io/Chart/ipatient-1.0.8.tgz
+    version: 1.0.8
+generated: "2025-03-12T15:42:50.425739551Z"
