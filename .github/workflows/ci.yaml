@@ -43,13 +43,12 @@ jobs:
 
       - name: Package Helm Chart
         run: |
-          helm package .  # ✅ Packages chart and places .tgz in  root
+          helm package .  # ✅ Packag es chart and places .tgz in  root
 
       - name: Checkout GitHub Pages Branch
         run: |
           git fetch origin gh-pages
           git checkout gh-pages || git checkout --orphan gh-pages
-          mv *.tgz .  # ✅ Move packaged .tgz files to root (no charts/ folder)
 
       - name: Update Helm Repository Index
         run: |
