@@ -41,9 +41,10 @@ jobs:
           git commit -am "chore: bump chart version to $VERSION"
           git push origin main
 
+
       - name: Package Helm Chart
         run: |
-          helm package .  # ✅ Packag es chart and places .tgz in  root
+          helm package .  # ✅ Packages chart and places .tgz in  root
 
       - name: Checkout GitHub Pages Branch
         run: |
