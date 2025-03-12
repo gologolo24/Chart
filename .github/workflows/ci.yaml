@@ -54,7 +54,7 @@ jobs:
 
       - name: Update Helm Repository Index
         run: |
-          helm repo index charts --url https://gologolo24.github.io/Chart
+          helm repo index charts --url https://gologolo24.github.io/Chart/charts
           git add charts
           git commit -m "chore: update helm repo index with version $VERSION"
           git push origin gh-pages
