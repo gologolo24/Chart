@@ -43,7 +43,7 @@ jobs:
 
       - name: Package Helm Chart
         run: |
-          helm package .  # ✅ Packages chart and places .tgz in root
+          helm package .  # ✅ Packages chart and places .tgz in  root
 
       - name: Checkout GitHub Pages Branch
         run: |
