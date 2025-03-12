@@ -17,5 +17,5 @@ spec:
     namespace: default         # Namespace to deploy the Helm chart
   syncPolicy:
     automated:                     # Enable automated sync (optional)
-      prune: true                  # Automatically delete resources removed from the chart
+      prune: true                  # Automatically delete resources removed from theffff chart
       selfHeal: true   
